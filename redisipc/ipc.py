@@ -14,15 +14,16 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-
+from __future__ import annotations
 
 import os
 import json
-from typing import Any, Coroutine, Dict, Callable, List, Optional, TypedDict, Union
+from typing import TYPE_CHECKING, Any, Coroutine, Dict, Callable, List, Optional, TypedDict, Union
 import asyncio
 
-from asyncio.events import AbstractEventLoop
-from aioredis import Redis
+if TYPE_CHECKING:
+    from redis.asyncio import Redis
+    from asyncio.events import AbstractEventLoop
 
 __all__ = (
     'JSON',
